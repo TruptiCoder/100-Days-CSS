@@ -1,0 +1,280 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui;
+}
+
+:root {
+    --red: #ff4040;
+    --blue: #297fe9;
+}
+
+main {
+  width: 400px;
+  height: 400px;
+  border-radius: 5px;
+  background: #39a99e;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 280px;
+  height: 220px;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 10px 10px 30px #00000061;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.header {
+  width: 100%;
+  height: 30%;
+  background-color: #e8ba57;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.header h3 {
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  line-height: 1rem;
+}
+
+.header p {
+  font-size: 0.8rem;
+  line-height: 1rem;
+}
+
+.rev {
+  text-align: right;
+}
+
+.graph {
+  width: 100%;
+  height: 70%;
+  padding: 1rem;
+  color: #666;
+  position: relative;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 2.5rem;
+  font-size: 0.6rem;
+}
+
+.item p {
+  position: relative;
+}
+
+.item p:nth-child(1)::before {
+  content: "";
+  width: 13px;
+  height: 2px;
+  background-color: var(--red);
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  border-radius: 2px;
+  transform: translateY(-50%);
+}
+
+.item p:nth-child(2)::before {
+  content: "";
+  width: 13px;
+  height: 2px;
+  background-color: var(--blue);
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  border-radius: 2px;
+  transform: translateY(-50%);
+}
+
+.lines {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  padding-block: 0.7rem;
+}
+
+span {
+  width: 100%;
+  border-top: 0.5px solid #333;
+  opacity: 0.1;
+  display: block;
+}
+
+.days {
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 0.6rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.plot {
+  width: 90%;
+  height: 50%;
+  position: absolute;
+  top: 25%;
+  left: 5%;
+}
+
+.data svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.data polyline {
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.data.red polyline {
+  stroke: var(--red);
+}
+
+.data.blue polyline {
+  stroke: var(--blue);
+}
+
+.data .msg {
+  position: absolute;
+  bottom: 13px;
+  left: 50%;
+  transform: translate3d(-50%, 10px, 0);
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 11px;
+  color: #fff;
+  padding: 8px 6px;
+  border-radius: 3px;
+  visibility: hidden;
+  opacity: 0;
+  transition: transform 0.4s ease-out 0s, opacity 0.4s ease-out 0s;
+}
+
+.data .msg:after {
+  position: absolute;
+  display: block;
+  content: "";
+  height: 6px;
+  width: 6px;
+  left: 50%;
+  margin-left: -3px;
+  bottom: -3px;
+  transform: rotate(45deg);
+}
+
+.data [class^="point-"] {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.data [class^="point-"]:hover .msg {
+  visibility: visible;
+  opacity: 1;
+  transform: translate3d(-50%, 0, 0);
+}
+
+.data.red [class^="point-"],
+.data.red .msg,
+.data.red .msg:after {
+  background: var(--red);
+}
+
+.data.blue [class^="point-"],
+.data.blue .msg,
+.data.blue .msg:after {
+  background: var(--blue);
+}
+
+.data.red .point-1 {
+  left: 7px;
+  top: 43px;
+}
+
+.data.red .point-2 {
+  left: 48px;
+  top: 9px;
+}
+
+.data.red .point-3 {
+  left: 88px;
+  top: 20px;
+}
+.data.red .point-4 {
+  left: 128px;
+  top: 8px;
+}
+.data.red .point-5 {
+  left: 169px;
+  top: 35px;
+}
+.data.red .point-6 {
+  left: 209px;
+  top: 45px;
+}
+.data.red .point-7 {
+  left: 249px;
+  top: 16px;
+}
+
+.data.blue .point-1 {
+  left: 7px;
+  top: 58px;
+}
+.data.blue .point-2 {
+  left: 48px;
+  top: 47px;
+}
+.data.blue .point-3 {
+  left: 88px;
+  top: 62px;
+}
+.data.blue .point-4 {
+  left: 128px;
+  top: 52px;
+}
+.data.blue .point-5 {
+  left: 169px;
+  top: 58px;
+}
+.data.blue .point-6 {
+  left: 209px;
+  top: 71px;
+}
+.data.blue .point-7 {
+  left: 249px;
+  top: 61px;
+}
