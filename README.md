@@ -8,8 +8,9 @@
 <h3>Day 3: The Pyramid</h3>
 <h3>Day 4: Loding</h3>
 <h3>Day 5: Statistics</h3>
+<h3>Day 6: Profile</h3>
 <br>
-<h3>Current Day: 5</h3>
+<h3>Current Day: 6</h3>
 <h3>End Date: On Going</h3>
 <br>
 <h2><strong>By: Trupti Balbudhe</strong></h2>
